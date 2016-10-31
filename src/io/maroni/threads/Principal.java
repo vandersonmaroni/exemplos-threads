@@ -3,9 +3,14 @@ package io.maroni.threads;
 public class Principal {
 
 	public static void main(String[] args) throws InterruptedException {
+		String nome = "da";
 		
-		System.out.println("Isso é uma thread main");
+		Thread threadAssinaturas1 = new Thread(new TarefaBuscaTextual("assinaturas1.txt",nome));
+		Thread threadAssinaturas2 = new Thread(new TarefaBuscaTextual("assinaturas2.txt",nome));
+		Thread threadAutores = new Thread(new TarefaBuscaTextual("autores.txt",nome));
 		
-		Thread.sleep(3000);
+		threadAssinaturas1.start();
+		threadAssinaturas2.start();
+		threadAutores.start();
 	}
 }
